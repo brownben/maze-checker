@@ -21,6 +21,14 @@ To create your own executable then run:
 
 # Usage
 To get started follow instructions in the program
+The file to import courses should look like ./sample data/courses.json
+````json
+{
+        // "course-name":[list of control codes separated by a comma],
+        "1":[101,102,103,104],
+        "Long":[255,101,213,100,122]
+}
+````
 
 # License
 Released under a MIT License
