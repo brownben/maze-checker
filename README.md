@@ -1,5 +1,4 @@
-![World Orienteering Day Logo](http://worldorienteeringday.com/wp-content/uploads/2016/03/wod-logo-color.png)
-
+<img src="http://worldorienteeringday.com/wp-content/uploads/2016/03/wod-logo-color.png" alt="World Orienteering Day Logo" height="150px"/>
 
 # WOD Maze Checker
 
