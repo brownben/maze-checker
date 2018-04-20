@@ -1,0 +1,119 @@
+@require 'helpers'
+@require 'titlebar'
+@require 'menu'
+
+html,body
+    margin:0
+    padding:0
+    height:100%
+    width:100%
+    overflow:hidden
+
+main
+    margin:10px
+    width:calc(100% - 180px)
+    font-family:Roboto
+    font-weight:300
+    float:left
+    h1
+        margin:5px
+        text-align:center
+        font-family:Roboto
+        font-weight:300
+    h2
+        text-align:center
+        font-family:Roboto
+        font-weight:300
+        margin:5px
+    h3
+        text-align:center
+        font-family:Roboto
+        font-weight:300
+        margin:5px
+        font-size:20px
+    p
+        text-align:center
+    .card
+        box-shadow(1.5)
+        padding: 10px
+        transition: .5s
+        &:first-child
+            margin-top:0
+
+    .card-small
+        display:inline-flex
+        color:white
+        text-align:center
+        font-size:30px
+        box-shadow(1.5)
+        padding: 10px
+        margin: 10px
+        transition: .5s
+        width:100px
+        height:100px
+        &:first-child
+            margin-left:0px
+        &:nth-child(6n+1)
+            background:linear-gradient(37deg,#F44336,#D32F2F)
+        &:nth-child(6n+2)
+            background:linear-gradient(37deg,#FF9800,#F57C00)
+        &:nth-child(6n+3)
+            background:linear-gradient(37deg,#FFEB3B,#FBC02D)
+        &:nth-child(6n+4)
+            background:linear-gradient(37deg, #009248, #46b348)
+        &:nth-child(6n+5)
+            background:linear-gradient(37deg,#03A9F4,#0288D1)
+        &:nth-child(6n+6)
+            background:linear-gradient(37deg,#E91E63,#C2185B)
+        &:hover
+            box-shadow(3)
+        p
+            width:100%
+    .courses
+        text-align:center
+
+.full
+    width:calc(100% - 20px)
+.none
+    transition:.5s width
+    width:0px!important
+    padding:0px!important
+    margin:0px!important
+    font-size:0px!important
+    h4
+        width:0px!important
+        padding:0px!important
+        margin:0px!important
+        font-size:0px!important
+    button
+        width:0px!important
+        padding:0px!important
+        margin:0px!important
+        font-size:0px!important
+
+::-webkit-scrollbar
+    width: 10px
+
+
+::-webkit-scrollbar-thumb
+    background: #ECEFF1
+    transition: .3s
+
+
+::-webkit-scrollbar-thumb:hover
+    background: #CFD8DC
+
+
+::-webkit-scrollbar-thumb:active
+    background: #B0BEC5
+
+.fade-enter-active, .fade-leave-active
+  transition: opacity .5s
+
+.fade-enter, .fade-leave-to
+  opacity: 0
+
+.fade-move
+  transform:transition .2s
+
+
