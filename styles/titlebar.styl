@@ -1,0 +1,40 @@
+#titlebar
+    width:100%
+    height:35px
+    color:white
+    background:linear-gradient(37deg, #009248, #46b348)
+    -webkit-user-select: none;
+    -webkit-app-region: drag
+    user-select: none;
+    img
+        height:20px
+        margin: 7px 10px
+        float: left
+    p
+        height:35px
+        line-height:35px
+        margin:0
+        font-family:Roboto
+        font-weight:300
+        float:left
+    button
+        float:right
+        border:0
+        outline:0
+        padding:0
+        height:100%
+        width:50px
+        fill:white
+        background:none
+        transition:.2s
+        -webkit-app-region: no-drag
+        &:hover
+            background-color:#009248
+    #close
+        &:hover
+            background-color:#E53935
+
+@media(max-width:350px)
+    #titlebar
+        #maximize, #minimize
+            display:none

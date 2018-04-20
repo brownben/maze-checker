@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>WOD Maze Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+</head>
+
+<body>
+    <div id="titlebar">
+        <img src="./assets/WOD White.png" />
+        <p>WOD Maze Checker</p>
+        <button id="close">
+            <svg color="white" width="10" height="10">
+                <path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z"></path>
+            </svg>
+        </button>
+        <button id="maximize">
+            <svg color="white" id="icon-min" width="10" height="10" style="display:none">
+                <path d="M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z"></path>
+            </svg>
+            <svg color="white" id="icon-max" width="10" height="10">
+                <path d="m 2,1e-5 0,2 -2,0 0,8 8,0 0,-2 2,0 0,-8 z m 1,1 6,0 0,6 -1,0 0,-5 -5,0 z m -2,2 6,0 0,6 -6,0 z"></path>
+            </svg>
+        </button>
+        <button id="minimize">
+            <svg color="white" width="10" height="10">
+                <path d="M 0,5 10,5 10,6 0,6 Z"></path>
+            </svg>
+        </button>
+    </div>
+    <div id="content">
+        <div id="menu" v-show="menuVisible" name="fade">
+            <button id="import-courses-button" onClick="importCourses()" style="margin-bottom:5px">Import Courses</button>
+
+            <div is="port" class="dropdown-menu">
+                <h4>Port:</h4>
+                <button id="port-button" onClick="downloadPortMenuToggle()">
+                    <p id="port-button-content">Select a Port</p>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+                        <path d="M0-.75h24v24H0z" fill="none" />
+                    </svg>
+                </button>
+                <ul id="port-dropdown" class="hidden">
+                    <li value="No Ports Connected" onClick="downloadChangePort('No Ports Connected')">No Ports Connected</li>
+                </ul>
+            </div>
+            <div id="baud" class="dropdown-menu">
+                <h4>Baud:</h4>
+                <button onClick="downloadBaudMenuToggle()">
+                    <p id="baud-button-content">4800</p>
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+                        <path d="M0-.75h24v24H0z" fill="none" />
+                    </svg>
+                </button>
+                <ul id="baud-dropdown" class="hidden">
+                    <li onClick="downloadChangeBaud(4800)">4800 (Serial)</li>
+                    <li onClick="downloadChangeBaud(38400)">38400 (USB)</li>
+                </ul>
+            </div>
+            <button id="connect-button" onClick="connectPort()">Connect</button>
+
+        </div>
+
+        <main v-bind:class="{ full: !menuVisible }">
+            <div class="card" v-show="error" v-on:click="error = null" name="fade">
+                <h2 style=" color:#F44336 ">{{ error }}</h2>
+            </div>
+            <div class="card" v-show="welcome" name="fade">
+                <h1>Welcome to World Orienteering Maze Checker</h1>
+                <p> Please Import a Course to Begin </p>
+            </div>
+            <div class="card" v-show="port" name="fade" style="margin-bottom: 10px">
+                <h3>Please Connect to a Port to Start Checking Courses</h3>
+            </div>
+            <div class="card" v-show="currentCourse" name="fade">
+                <h3>Current Selected Course: {{currentCourse}}</h3>
+            </div>
+            <div class="courses">
+                <div class="card-small" v-for="course in courseNames" v-on:click="currentCourse = course">
+                    <p>{{course}}</p>
+                </div>
+            </div>
+            <div class="card" v-show="success" name="fade" style="margin-top:20px">
+                <h2>Congratulations - You have Completed the Course Successfully</h2>
+                <h1>Time: {{time}}</h1>
+            </div>
+            <div class="card" v-show="fail" name="fade" style="margin-top:20px">
+                <h1>Sorry</h1>
+                <h2>You Didn't Get All of the Controls Correct</h2>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script src="./scripts/main.js "></script>
+<script src="./scripts/windowCommands.js "></script>
+
+
+
+</html>

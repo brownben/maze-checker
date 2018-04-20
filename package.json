@@ -1,0 +1,54 @@
+{
+    "name": "wod-maze",
+    "description": "Checks a Simple Maze Orienteering Course has been Completed Correctly",
+    "author": {
+        "name": "bonalybob"
+    },
+    "license": "MIT",
+    "keywords": [
+        "orienteering",
+        "sportident",
+        "timing",
+        "maze",
+        "course-checker",
+        "world-orienteering-day",
+        "wod",
+        "electron"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/bonalybob/wod-maze.git"
+    },
+    "build": {
+        "appId": "wod-maze",
+        "productName": "WOD Maze Checker",
+        "copyright": "Copyright © 2018 Bonalybob",
+        "win": {
+            "target": "nsis",
+            "icon": "./assets/WOD Color.ico"
+        }
+    },
+    "version": "1.0.0",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "rebuild": "electron-builder install-app-deps",
+        "postinstall": "npm run rebuild",
+        "dist": "build",
+        "lint": "eslint ./scripts/**",
+        "styles": "stylus ./styles/index.styl -o ./styles/styles.css -m -c",
+        "watch:styles": "stylus ./styles/index.styl -o ./styles/styles.css -m -c -w"
+    },
+    "dependencies": {
+        "serialport": "^6.1.1",
+        "vue": "^2.5.16"
+    },
+    "devDependencies": {
+        "electron": "^1.8.4",
+        "electron-builder": "^20.10.0",
+        "eslint": "^4.19.1",
+        "eslint-plugin-import": "^2.11.0",
+        "eslint-plugin-node": "^6.0.1",
+        "eslint-plugin-promise": "^3.7.0"
+    }
+}
