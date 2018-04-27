@@ -7,7 +7,7 @@ Checks a Simple Maze Orienteering Course has been Completed Correctly and operat
 
 A simple program, based on electron, to read SportIdent cards to check the Maze Course was completed correctly and to calculate the time. Created for World Orienteering Day 2018, for more information about World Orienteering Day see https://worldorienteeringday.com
 
-# Install
+## Install
 Get the Windows installer from Releases page
 
 OR To build from source:
@@ -20,7 +20,7 @@ To create your own executable then run:
 
         npm run dist
 
-# Usage
+## Usage
 To get started follow instructions in the program
 The file to import courses should look like ./sample data/courses.json
 ````json
@@ -31,11 +31,11 @@ The file to import courses should look like ./sample data/courses.json
 }
 ````
 
-# License
+## License
 Released under a MIT License
 See [LICENSE.md](./LICENSE.md)
 
-# Credits
+## Credits
 See [CREDITS.md](./CREDITS.md)
 
 ### WOD Maze Checker is not supported, associated or endorsed by [SportIdent](https://www.sportident.com), or [World Orienteering Day](https://worldorienteeringday.com) in any way
