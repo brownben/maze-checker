@@ -77,10 +77,11 @@
                 <h3>Please Connect to a Port to Start Checking Courses</h3>
             </div>
             <div class="card" v-show="currentCourse" name="fade">
-                <h3>Current Selected Course: {{currentCourse}}</h3>
+                <h2>Currently Checking for Course - {{currentCourse}}</h2>
+                <h1 v-if="leadingTimes[currentCourse]">Current Leading Time is {{readableTimeElapsed(leadingTimes[currentCourse])}}</h1>
             </div>
             <div class="courses">
-                <div class="card-small" v-for="course in courseNames" v-on:click="currentCourse = course">
+                <div class="card-small" v-for="course in courseNames" v-on:click="currentCourse = course" v-bind:class="[currentCourse == course ? 'active': '']">
                     <p>{{course}}</p>
                 </div>
             </div>
