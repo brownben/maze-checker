@@ -14,6 +14,7 @@ var app = new Vue({
         courses: [],
         courseNames: [],
         currentCourse: '',
+        leadingTimes: {},
         menuVisible: true,
         welcome: true,
         error: null,
@@ -22,7 +23,17 @@ var app = new Vue({
         success: false,
         time: '',
     },
+    functions: {
+        readableTimeElapsed: function (timeRaw) {
+            var timeMinutes = (timeRaw - (timeRaw % 60)) / 60
+            var timeSeconds = timeRaw % 60
+            if (timeSeconds <= 9 && timeSeconds >= 0) timeSeconds = '0' + timeSeconds
+            if (timeMinutes <= 9 && timeMinutes >= 0) timeMinutes = '0' + timeMinutes
+            return timeMinutes + ':' + timeSeconds
+        },
+    },
 })
+
 function downloadBaudMenuToggle () {
     if (document.getElementById('baud-dropdown').getAttribute('class') === 'hidden') document.getElementById('baud-dropdown').setAttribute('class', '')
     else document.getElementById('baud-dropdown').setAttribute('class', 'hidden')
@@ -78,7 +89,6 @@ function connectPort () {
             port.on('open', function () {
                 document.getElementById('connect-button').innerText = 'Disconnect'
                 app.port = false
-                app.menuVisible = false
             })
             port.on('data', function (data) {
                 var packet = packetData(data)
@@ -137,6 +147,8 @@ function processRecievedData (packet, port) {
                 if (checkCourse(processedData.controls, app.courses[app.currentCourse])) {
                     app.time = readableTimeElapsed(processedData.totalTime)
                     app.success = true
+                    if (processedData.totalTime < app.leadingTimes[app.currentCourse] || app.leadingTimes[app.currentCourse] == 0) app.leadingTimes[app.currentCourse] = processedData.totalTime
+                    app.$forceUpdate()
                 }
                 else {
                     app.fail = true
@@ -163,6 +175,7 @@ function importCourses () {
                     app.courses = JSON.parse(fs.readFileSync(paths[0], 'utf8'))
                     app.welcome = false
                     app.port = true
+                    for (course of app.courseNames) app.leadingTimes[course.toString()] = 0
                 }
                 else {
                     app.error = 'Error: File format is invalid'

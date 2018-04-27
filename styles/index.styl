@@ -8,6 +8,7 @@ html,body
     height:100%
     width:100%
     overflow:hidden
+    user-select:none
 
 main
     margin:10px
@@ -65,10 +66,13 @@ main
             background:linear-gradient(37deg,#03A9F4,#0288D1)
         &:nth-child(6n+6)
             background:linear-gradient(37deg,#E91E63,#C2185B)
-        &:hover
+        &.active
             box-shadow(3)
+        &:hover
+            box-shadow(4)
         p
             width:100%
+
     .courses
         text-align:center
 

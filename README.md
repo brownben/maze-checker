@@ -2,7 +2,7 @@
 
 # WOD Maze Checker
 
-Checks a Simple Maze Orienteering Course has been Completed Correctly
+Checks a Simple Maze Orienteering Course has been Completed Correctly and operates a simple leaderboard function
 
 A simple program, based on electron, to read SportIdent cards to check the Maze Course was completed correctly and to calculate the time. Created for World Orienteering Day 2018, for more information about World Orienteering Day see https://worldorienteeringday.com
 
