@@ -60,7 +60,7 @@ typings/
 
 # Ignore Generated CSS
 *.css.map
-*.css
+/styles/*.css
 
 # Ignore Databases
 *.db
