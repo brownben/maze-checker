@@ -65,11 +65,6 @@ var contextMenu = [{
 {
     label: 'Toggle Menu',
     click: () => { win.webContents.send('toggle-menu', 'true') },
-},
-{ type: 'separator' },
-{
-    label: 'Developer Tools',
-    click: () => { win.toggleDevTools() },
 }]
 
 const ContextMenu = Menu.buildFromTemplate(contextMenu)
