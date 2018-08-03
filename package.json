@@ -35,11 +35,13 @@
         "rebuild": "electron-builder install-app-deps",
         "postinstall": "npm run rebuild",
         "dist": "build",
+        "build": "npm run styles && npm run dist",
         "lint": "eslint ./scripts/**",
         "styles": "stylus ./styles/index.styl -o ./styles/styles.css -m -c",
         "watch:styles": "stylus ./styles/index.styl -o ./styles/styles.css -m -c -w"
     },
     "dependencies": {
+        "npm": "^6.0.0",
         "serialport": "^6.1.1",
         "vue": "^2.5.16"
     },
