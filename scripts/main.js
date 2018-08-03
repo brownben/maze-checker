@@ -212,5 +212,5 @@ function checkCourse (cardList, courseList) {
         cardListCounter = cardListCounter + 1
         courseListCounter = courseListCounter + 1
     }
-    return true
+    return courseListCounter == courseList.length
 }
