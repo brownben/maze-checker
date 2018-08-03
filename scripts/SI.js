@@ -202,10 +202,10 @@ function Card10 (type) {
                 return false
             }
             else if (blockNumber == 1 || blockNumber == 4 || blockNumber == 5 || blockNumber == 6 || blockNumber == 7) {
-                if (this.type == 8) controls = getCard10PunchData(data.slice(22, 134))
+                if (this.type == 8) controls = getCard10PunchData(data.slice(14, 134))
                 else if (this.type == 'p') controls = getCard10PunchData(data.slice(54, 134))
                 else controls = getCard10PunchData(data.slice(6, 134))
-                if (!this.data.controls) this.data.controls = controls
+                if (this.data.controls == []) this.data.controls = controls
                 else this.data.controls.push(controls)
                 if (controls.length < 32 || blockNumber == 0x01 || blockNumber == 0x07) {
                     port.write(Buffer.from([0xFF, 0x06]))
