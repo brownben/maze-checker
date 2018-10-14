@@ -1,5 +1,4 @@
-![World Orienteering Day Logo](http://worldorienteeringday.com/wp-content/uploads/2016/03/wod-logo-color.png)
-
+<img src="http://worldorienteeringday.com/wp-content/uploads/2016/03/wod-logo-color.png" alt="World Orienteering Day Logo" height="150px"/>
 
 # WOD Maze Checker
 
@@ -23,7 +22,7 @@ To create your own executable then run:
 ## Usage
 To get started follow instructions in the program
 The file to import courses should look like ./sample data/courses.json
-````json
+````
 {
         // "course-name":[list of control codes separated by a comma],
         "1":[101,102,103,104],
