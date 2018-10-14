@@ -20,8 +20,7 @@ To create your own executable then run:
         npm run dist
 
 ## Usage
-To get started follow instructions in the program
-The file to import courses should look like ./sample data/courses.json
+Click 'Import Courses' in the left hand toolbar and select your courses file, this file should look like ./sample data/courses.json or below
 ````
 {
         // "course-name":[list of control codes separated by a comma],
@@ -29,6 +28,9 @@ The file to import courses should look like ./sample data/courses.json
         "Long":[255,101,213,100,122]
 }
 ````
+Then select your station from the COM Port list and select the correct baud rate. 4800 for Serial and 38400 for USB.
+Click 'Connect', then the course you want matched and dib into the station and check if you have got the course correct
+Have fun!
 
 ## License
 Released under a MIT License
