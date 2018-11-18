@@ -2,7 +2,7 @@
     "name": "wod-maze",
     "description": "Checks a Simple Maze Orienteering Course has been Completed Correctly",
     "author": {
-        "name": "bonalybob"
+        "name": "Ben Brown"
     },
     "license": "MIT",
     "keywords": [
@@ -17,12 +17,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/bonalybob/wod-maze.git"
+        "url": "https://github.com/brownben/wod-maze.git"
     },
     "build": {
         "appId": "wod-maze",
         "productName": "WOD Maze Checker",
-        "copyright": "Copyright © 2018 Bonalybob",
+        "copyright": "Copyright © 2018 Ben Brown",
         "win": {
             "target": "nsis",
             "icon": "./assets/WOD Color.ico"
