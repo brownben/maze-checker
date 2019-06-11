@@ -1,78 +1,91 @@
 #menu
-    transition:.5s width
-    float:left
-    width:160px
-    min-height:calc(100% - 35px)
+    float: left
+    min-height: calc(100% - 35px)
+    width: 160px
+    transition: 0.5s width
     box-shadow(2)
-    -webkit-user-select: none;
-    user-select: none;
-    button
-        width:100%
-        outline:0
-        border:0
-        margin:0
-        padding: 7px 5px
-        color: #009248
-        background-color:white
-        font-family:Roboto
-        font-weight:300
-        font-size:17px
-        transition:.3s
-        -webkit-user-select: none;
-        user-select: none;
-        &:hover
-            color:white
-            background-color:#009248
-        &:first-child
-            margin-top:5px
+    user-select: none
+    -webkit-user-select: none
 
     button
-        margin-top:10px
+        margin: 0
+        padding: 7px 5px
+        width: 100%
+        outline: 0
+        border: 0
+        background-color: white
+        color: #009248
+        font-weight: 300
+        font-size: 17px
+        font-family: Roboto
+        transition: 0.3s
+        user-select: none
+        -webkit-user-select: none
+
+        &:hover
+            background-color: #009248
+            color: white
+
+        &:first-child
+            margin-top: 5px
+
+    button
+        margin-top: 10px
+
     .dropdown-menu
-        font-family:Roboto
-        font-weight:300
+        font-weight: 300
+        font-family: Roboto
+
         h4
-            font-weight:300
-            margin:0
-            margin-top:10px
-            margin-bottom:5px
-            font-size:14px
-            color:#009248
-            text-align:center
+            margin: 0
+            margin-top: 10px
+            margin-bottom: 5px
+            color: #009248
+            text-align: center
+            font-weight: 300
+            font-size: 14px
+
             &:first-child
-                margin-top:5px
-                margin-bottom:5px
+                margin-top: 5px
+                margin-bottom: 5px
+
         button
-            margin-top:0px
-            height:34px
+            margin-top: 0
+            height: 34px
+
             p
-                margin:0
+                margin: 0
+
             &:hover
                 & svg
-                    fill:white
+                    fill: white
+
             svg
-                height:20px
-                margin:-20px 5px 0px 0px
-                transition:.3s
-                fill:#009248
-                float:right
+                float: right
+                margin: -20px 5px 0 0
+                height: 20px
+                transition: 0.3s
+                fill: #009248
 
         ul
-            padding:0
-            margin:0
-            width:100%
-            text-align:center
-            color:#009248
-            font-size:16px
-            list-style:none
+            margin: 0
+            padding: 0
+            width: 100%
+            color: #009248
+            list-style: none
+            text-align: center
+            font-size: 16px
+
         li
-            transition:.3s
-            padding:7px 5px
+            padding: 7px 5px
+            transition: 0.3s
+
             &:hover
-                color:white
-                background-color:#009248
+                background-color: #009248
+                color: white
+
         .hidden
             li
-                height:0
-                padding:0
-                font-size:0
+                padding: 0
+                height: 0
+                font-size: 0

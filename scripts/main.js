@@ -4,7 +4,7 @@ const fs = require('fs')
 const SerialPort = require('serialport')
 const Vue = require('vue/dist/vue.min.js')
 
-const SI = require('./scripts/SI.js')
+const si = require('./scripts/SI.js')
 
 var currentCard = null
 var port
@@ -91,12 +91,30 @@ function connectPort () {
                 app.port = false
             })
             port.on('data', function (data) {
-                var packet = packetData(data)
-                if (packet) {
-                    processRecievedData(packet, port)
-                }
+                si.getInfo(data, port)
+                    .then(data => {
+                        if (data) {
+                            app.fail = false
+                            app.success = false
+                            if (checkCourse(data.controls, app.courses[app.currentCourse])) {
+                                app.success = true
+                                if (data.finish - data.start > 0) data.totalTime = data.finish - data.start
+                                else data.totalTime = data.finish - data.start + 43200
+                                if (data.totalTime < app.leadingTimes[app.currentCourse] || app.leadingTimes[app.currentCourse] == 0) {
+                                    app.leadingTimes[app.currentCourse] = data.totalTime
+                                }
+                                app.time = readableTimeElapsed(data.totalTime)
+                                app.$forceUpdate()
+                            }
+                            else {
+                                app.fail = true
+                            }
+                        }
+                    })
+                    .catch(error => console.error(error.message))
             })
             port.on('error', function (error) {
+                console.error(error.message)
                 port.close()
             })
             port.on('close', function () {
@@ -130,32 +148,6 @@ function readableTimeElapsed (timeRaw) {
     if (timeSeconds <= 9 && timeSeconds >= 0) timeSeconds = '0' + timeSeconds
     if (timeMinutes <= 9 && timeMinutes >= 0) timeMinutes = '0' + timeMinutes
     return timeMinutes + ':' + timeSeconds
-}
-
-function processRecievedData (packet, port) {
-    var inserted = SI.inserted(packet)
-    if (inserted) {
-        currentCard = inserted
-        port.write(currentCard.readData)
-    }
-    else if (currentCard) {
-        if (currentCard.dataRecieved(packet)) {
-            var processedData = currentCard.processData(packet, port)
-            if (processedData) {
-                app.fail = false
-                app.success = false
-                if (checkCourse(processedData.controls, app.courses[app.currentCourse])) {
-                    app.time = readableTimeElapsed(processedData.totalTime)
-                    app.success = true
-                    if (processedData.totalTime < app.leadingTimes[app.currentCourse] || app.leadingTimes[app.currentCourse] == 0) app.leadingTimes[app.currentCourse] = processedData.totalTime
-                    app.$forceUpdate()
-                }
-                else {
-                    app.fail = true
-                }
-            }
-        }
-    }
 }
 
 function importCourses () {

@@ -1,6 +1,6 @@
 <img src="http://worldorienteeringday.com/wp-content/uploads/2016/03/wod-logo-color.png" alt="World Orienteering Day Logo" height="150px"/>
 
-# WOD Maze Checker
+# Maze Checker
 
 Checks a Simple Maze Orienteering Course has been Completed Correctly and operates a simple leader board function
 
@@ -31,6 +31,7 @@ Click 'Import Courses' in the left hand toolbar and select your courses file, th
 Then select your station from the COM Port list and select the correct baud rate. 4800 for Serial and 38400 for USB.
 Click 'Connect', then the course you want matched and dib into the station and check if you have got the course correct
 Have fun!
+Note: SI Card 6 don't work (Codes: 500000-999999)
 
 ## License
 Released under a MIT License

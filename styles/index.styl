@@ -2,122 +2,130 @@
 @require 'titlebar'
 @require 'menu'
 
-html,body
-    margin:0
-    padding:0
-    height:100%
-    width:100%
-    overflow:hidden
-    user-select:none
+html, body
+    overflow: hidden
+    margin: 0
+    padding: 0
+    width: 100%
+    height: 100%
+    user-select: none
 
 main
-    margin:10px
-    width:calc(100% - 180px)
-    font-family:Roboto
-    font-weight:300
-    float:left
+    float: left
+    margin: 10px
+    width: calc(100% - 180px)
+    font-weight: 300
+    font-family: Roboto
+
     h1
-        margin:5px
-        text-align:center
-        font-family:Roboto
-        font-weight:300
+        margin: 5px
+        text-align: center
+        font-weight: 300
+        font-family: Roboto
+
     h2
-        text-align:center
-        font-family:Roboto
-        font-weight:300
-        margin:5px
+        margin: 5px
+        text-align: center
+        font-weight: 300
+        font-family: Roboto
+
     h3
-        text-align:center
-        font-family:Roboto
-        font-weight:300
-        margin:5px
-        font-size:20px
+        margin: 5px
+        text-align: center
+        font-weight: 300
+        font-size: 20px
+        font-family: Roboto
+
     p
-        text-align:center
+        text-align: center
+
     .card
         box-shadow(1.5)
         padding: 10px
-        transition: .5s
+        transition: 0.5s
+
         &:first-child
-            margin-top:0
+            margin-top: 0
 
     .card-small
-        display:inline-flex
-        color:white
-        text-align:center
-        font-size:30px
+        display: inline-flex
+        color: white
+        text-align: center
+        font-size: 30px
         box-shadow(1.5)
-        padding: 10px
         margin: 10px
-        transition: .5s
-        width:100px
-        height:100px
+        padding: 10px
+        width: 100px
+        height: 100px
+        transition: 0.5s
+
         &:first-child
-            margin-left:0px
-        &:nth-child(6n+1)
-            background:linear-gradient(37deg,#F44336,#D32F2F)
-        &:nth-child(6n+2)
-            background:linear-gradient(37deg,#FF9800,#F57C00)
-        &:nth-child(6n+3)
-            background:linear-gradient(37deg,#FFEB3B,#FBC02D)
-        &:nth-child(6n+4)
-            background:linear-gradient(37deg, #009248, #46b348)
-        &:nth-child(6n+5)
-            background:linear-gradient(37deg,#03A9F4,#0288D1)
-        &:nth-child(6n+6)
-            background:linear-gradient(37deg,#E91E63,#C2185B)
+            margin-left: 0
+
+        &:nth-child(4n+1)
+            background: linear-gradient(37deg, #FFEB3B, #FBC02D)
+
+        &:nth-child(4n+2)
+            background: linear-gradient(37deg, #F44336, #D32F2F)
+
+        &:nth-child(4n+3)
+            background: linear-gradient(37deg, #03A9F4, #0288D1)
+
+        &:nth-child(4n+4)
+            background: linear-gradient(37deg, #009248, #46b348)
+
         &.active
             box-shadow(4)
+
         &:hover
             box-shadow(4)
+
         p
-            width:100%
+            width: 100%
 
     .courses
-        text-align:center
+        text-align: center
 
 .full
-    width:calc(100% - 20px)
+    width: calc(100% - 20px)
+
 .none
-    transition:.5s width
-    width:0px!important
-    padding:0px!important
-    margin:0px!important
-    font-size:0px!important
+    margin: 0 !important
+    padding: 0 !important
+    width: 0 !important
+    font-size: 0 !important
+    transition: 0.5s width
+
     h4
-        width:0px!important
-        padding:0px!important
-        margin:0px!important
-        font-size:0px!important
+        margin: 0 !important
+        padding: 0 !important
+        width: 0 !important
+        font-size: 0 !important
+
     button
-        width:0px!important
-        padding:0px!important
-        margin:0px!important
-        font-size:0px!important
+        margin: 0 !important
+        padding: 0 !important
+        width: 0 !important
+        font-size: 0 !important
 
 ::-webkit-scrollbar
     width: 10px
 
-
 ::-webkit-scrollbar-thumb
     background: #ECEFF1
-    transition: .3s
-
+    transition: 0.3s
 
 ::-webkit-scrollbar-thumb:hover
     background: #CFD8DC
-
 
 ::-webkit-scrollbar-thumb:active
     background: #B0BEC5
 
 .fade-enter-active, .fade-leave-active
-  transition: opacity .5s
+    transition: opacity 0.5s
 
 .fade-enter, .fade-leave-to
-  opacity: 0
+    opacity: 0
 
 .fade-move
-  transform:transition .2s
-
-
+    transform: transition 0.2s

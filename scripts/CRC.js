@@ -1,13 +1,6 @@
 /* eslint no-plusplus: "off" */
 
-function shortByte (byte) {
-    // If Byte Starts with 0 it is cut short, causing problems when concatenated
-    if (byte.toString(16).length < 2) byte = '0' + byte.toString(16)
-    else byte = byte.toString(16)
-    return byte
-}
-
-function computeCRC (buffer) {
+module.exports = buffer => {
     var count = buffer.length
     if (count < 2) {
         return 0
@@ -48,17 +41,4 @@ function computeCRC (buffer) {
         }
     }
     return (tmp & 0xFFFF)
-}
-
-module.exports = {
-    check: function (data, cardType) {
-        if (cardType == 5) {
-            if (parseInt(shortByte(data[133]) + shortByte(data[134]), 16) == parseInt(computeCRC(data.slice(1, 133)).toString(16), 16)) return true
-            else return false
-        }
-        else {
-            if (parseInt(shortByte(data[134]) + shortByte(data[135]), 16) == parseInt(computeCRC(data.slice(1, 134)).toString(16), 16)) return true
-            else return false
-        }
-    },
 }

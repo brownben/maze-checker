@@ -4,6 +4,9 @@
         "node": true,
         "es6": true
     },
+    "parserOptions": {
+        "ecmaVersion": 9
+    },
     "extends": "eslint:recommended",
     "plugins": [
         "import",
@@ -118,6 +121,7 @@
             }
         ],
         "no-control-regex": "error",
+        "no-console": "off",
         "no-debugger": "error",
         "no-delete-var": "error",
         "no-dupe-args": "error",
